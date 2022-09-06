@@ -1,0 +1,6 @@
+Atividade de QTS utilizando a API Slim.
+Slides estão no Teams.
+
+Instalação do composer: https://getcomposer.org/Composer-Setup.exe
+
+
