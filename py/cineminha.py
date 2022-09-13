@@ -17,8 +17,10 @@ def disp():
     elif (escolha in cadeiras) == True:
         cadeiras.remove(escolha)
         print("Sua cadeira foi reservada com sucesso! :)\nInfo")
+        
         cod = random.randrange(100,250)
         print("Código do bilhete da cadeira: " + str(cod))
+        
         print("Reservar mais cadeiras?[s/n]")
         dnv = input()
         if dnv == "s" or dnv == "sim":
