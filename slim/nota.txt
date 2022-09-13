@@ -31,3 +31,5 @@ A seguir:
 -> No index.php escreva o código disponivel em: https://www.slimframework.com/
 
 -> Para rodar o servidor, escreva no terminal: php -S localhost:8000
+
+-> Instalação do Postman para teste locais: https://www.postman.com/downloads/ 
