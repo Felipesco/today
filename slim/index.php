@@ -28,6 +28,45 @@ $app->get('/oi/{nome}', function (Request $request, Response $response, array $a
     return $response;
 });
 
+// POST /teste
+$app->post('/teste', function (Request $request, Response $response, $args) {
+
+    $dados = file_get_contents('php://input');
+
+    $array = json_decode($dados);
+    $nome = $array  ->nome;
+
+    $response->getBody()->write("Heeee, inserção de dados</br>Metodo POST - Inseirir item $nome");
+
+    return $response;
+
+});
+
+
+// PUT /alter/id
+$app->put('/alter/{id}', function (Request $request, Response $response, $args) {
+
+    $id = $args['id'];
+
+    $response->getBody()->write(":) alteração de de dados</br>PUT - Atualizar item com o id:  $id");
+
+    return $response;
+
+});
+
+
+// DELETE /del/id
+$app->delete('/del/{id}', function (Request $request, Response $response, $args) {
+
+    $id = $args['id'];
+
+    $response->getBody()->write("Delete - Deletar item com o id: $id");
+
+    return $response;
+
+});
+
+
 $app->run();
 
 ?>
