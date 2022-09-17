@@ -2,5 +2,5 @@ import turtle
 
 seta = turtle.Turtle()
 
-seta.forward(100)
+seta.forward(150)
 
