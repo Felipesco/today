@@ -16,5 +16,3 @@ def forma2():
             seta.forward(100)
             seta.right(120)
         seta.right(36)
-
-forma2()
