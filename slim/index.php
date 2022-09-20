@@ -4,6 +4,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 
 require __DIR__ . ' ./vendor/autoload.php';
+require_once __DIR__ . './model/ConexaoDB.php';
 
 $app = AppFactory::create();
 
