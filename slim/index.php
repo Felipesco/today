@@ -10,7 +10,7 @@ $app = AppFactory::create();
 
 //GET  /
 $app->get('/', function (Request $request, Response $response, $args) {
-    $response->getBody()->write("Vai jacaré jacaré!</br>GET sem rota, entrem em locallhost:8000/oi/[seu nome]");
+    $response->getBody()->write("Lista metodo GET: </br>locallhost:8000/oi/[seu nome]</br>locallhost:8000/oi/[seu nome]");
     return $response;
 });
 
@@ -30,11 +30,28 @@ $app->get('/oi/{nome}', function (Request $request, Response $response, array $a
 });
 
 
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+//GET /contatos
+$app->get('/contatos', function (Request $request, Response $response, $args) {
+
+    $sql = "SELECT * FROM contato";
+    $contatos = array();
+    
+    $resultado = ConexaoDB::getInstance()->getHandler()->query($sql);
+
+    while ($linha = $resultado->fetch_assoc()){
+        $contatos[] = $linha; 
+    }
+
+    $response->getBody()->write(json_encode($contatos));
+    return $response -> withHeader('Contebt-type', 'application/json');
 
 
+});
+
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 // POST /teste
 $app->post('/teste', function (Request $request, Response $response, $args) {
