@@ -31,7 +31,7 @@ $app->get('/oi/{nome}', function (Request $request, Response $response, array $a
 
 
 //GET /contatos
-$app->get('/contatos', function (Request $request, Response $response, $args) {
+$app->get('/contatos', function (Request $request, Response $response) {
 
     $sql = "SELECT * FROM contato";
     $contatos = array();
@@ -49,24 +49,24 @@ $app->get('/contatos', function (Request $request, Response $response, $args) {
 
 
 //GET /contatos/[id]
-$app->get('/contatos', function (Request $request, Response $response, $args) {
+// $app->get('/contatos/{id}', function (Request $request, Response $response, $args) {
 
-    $id = $request->getAttribute('id');
+//     $id = $request->getAttribute('id');
 
 
-    $sql = "SELECT * FROM contato WHERE id = $id";
-    $contatos = array();
+//     $sql = "SELECT * FROM contato WHERE id = $id";
+//     $contatos = array();
     
-    $resultado = ConexaoDB::getInstance()->getHandler()->query($sql);
+//     $resultado = ConexaoDB::getInstance()->getHandler()->query($sql);
 
-    while ($linha = $resultado->fetch_assoc()){
-        $contatos[] = $linha; 
-    }
+//     while ($linha = $resultado->fetch_assoc()){
+//         $contatos[] = $linha; 
+//     }
 
-    $response->getBody()->write(json_encode($contatos[0]));
-    return $response -> withHeader('Contebt-type', 'application/json');
+//     $response->getBody()->write(json_encode($contatos[0]));
+//     return $response -> withHeader('Contebt-type', 'application/json');
 
-});
+// });
 
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
